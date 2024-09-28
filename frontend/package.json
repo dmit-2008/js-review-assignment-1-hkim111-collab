@@ -1,0 +1,19 @@
+{
+  "name": "assignment01",
+  "version": "1.0.0",
+  "description": "Assignment 01",
+  "main": "index.js",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "author": "Hyeonseo Kim",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}

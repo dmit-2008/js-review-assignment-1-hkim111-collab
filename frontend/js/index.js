@@ -1,5 +1,4 @@
 // your code goes here.
 
-//test
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-//test2

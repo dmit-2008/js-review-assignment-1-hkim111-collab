@@ -1,3 +1,4 @@
 // your code goes here.
 
-//ok
+const BASE_URL = "http://localhost:3000/jobs"
+
