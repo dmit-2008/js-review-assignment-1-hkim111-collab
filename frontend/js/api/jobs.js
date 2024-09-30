@@ -22,9 +22,21 @@ const renderJob=(jobData,listElement)=>{
   </li>`
 }
 
-const searchButton = document.getElementById("search-button");
-
-searchButton.addEventListener
+export async function fetchJobs(job) {
+  const url = `${BASE_URL}/jobs?q=${encodeURIComponent(job)}`;
+  try {
+      const response = await fetch(url);
+      if (!response.ok) {
+          console.log(response);
+          throw new Error('Job not found!');
+      }
+      const data = await response.json();
+      return data;
+  } catch (error) {
+      console.error('Fetch error:', error);
+      throw error;
+  }
+}
 
 export {getJobList}
 export {renderJob}
