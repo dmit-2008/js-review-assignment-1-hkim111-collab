@@ -27,13 +27,12 @@ export async function fetchJobs(job) {
   try {
       const response = await fetch(url);
       if (!response.ok) {
-          console.log(response);
-          throw new Error('Job not found!');
+          throw new Error('Not found');
       }
       const data = await response.json();
       return data;
   } catch (error) {
-      console.error('Fetch error:', error);
+      console.error('Error:', error);
       throw error;
   }
 }
