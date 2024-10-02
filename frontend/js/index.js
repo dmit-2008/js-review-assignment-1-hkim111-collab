@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { getJobList } from './api/jobs.js'
 import { renderJob } from './api/jobs.js';
 import { fetchJobs } from './api/jobs.js';
+import { fetchJobDetail } from './api/jobs.js';
+import { renderJobDetail } from './api/jobs.js';
 
 const jobList=document.querySelector("#searched-jobs");
 
@@ -36,6 +38,21 @@ document.getElementById("search-button").addEventListener("click", async (event)
             } else {
                 jobList.innerHTML = `<div class="text-dark">No Results Found</div>`;
             }
+        } catch (error) {
+            console.error("Error", error);
+        }
+    }
+});
+
+jobList.addEventListener("click", async (event) => {
+    if (event.target.classList.contains("view-job-button")) {
+        event.preventDefault();
+        const jobDetailId = event.target.getAttribute('job-data-id');
+        try {
+            const jobDetail = await fetchJobDetail(jobDetailId);
+            const jobDetailCard = document.getElementById("job-details-card");
+            jobDetailCard.innerHTML = "";
+            renderJobDetail(jobDetail, jobDetailCard);
         } catch (error) {
             console.error("Error", error);
         }
